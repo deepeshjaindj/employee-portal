@@ -46,7 +46,7 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
   if (status === 'loading' || projectsLoading) {
     return (
       <div className="py-10 flex flex-col items-center justify-center gap-3">
-        <div className="h-5 w-5 rounded-full border-2 border-amber-500/30 border-t-amber-500 animate-spin" />
+        <div className="h-5 w-5 rounded-full border-2 border-blue-500/30 border-t-blue-500 animate-spin" />
         <p className="text-sm text-[var(--text-faint)]">Loading form...</p>
       </div>
     );

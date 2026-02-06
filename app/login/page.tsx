@@ -9,15 +9,15 @@ function LoginContent() {
   const from = searchParams.get('from') || '/';
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 ambient-glow-center" style={{ background: 'var(--bg-root)' }}>
+    <main className="min-h-screen flex items-center justify-center px-4 bg-[#09090B]">
       <div className="w-full max-w-[400px] space-y-8 animate-slide-up">
         {/* Branding */}
         <div className="text-center space-y-4">
           {/* Logo */}
           <div className="flex justify-center">
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(217,119,6,0.15)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700" />
-              <span className="relative text-base font-bold text-stone-950 tracking-wide">OS</span>
+            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(59,130,246,0.15)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700" />
+              <span className="relative text-base font-bold text-white tracking-wide">OS</span>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ function LoginContent() {
         </div>
 
         {/* Login Card */}
-        <div className="card-surface accent-bar-top p-6 space-y-5">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-[var(--radius-lg)] shadow-[0_4px_32px_rgba(0,0,0,0.3)] accent-bar-top p-6 space-y-5">
           <div className="space-y-1">
             <p className="text-[11px] font-semibold text-[var(--text-muted)] tracking-[0.08em] uppercase">
               Continue with
@@ -46,10 +46,10 @@ function LoginContent() {
             type="button"
             onClick={() => signIn('google', { callbackUrl: from })}
             className="w-full flex items-center justify-center gap-3 h-11 px-4 rounded-[var(--radius-sm)] cursor-pointer
-              bg-[var(--text-primary)] text-stone-950 font-semibold text-sm
+              bg-white text-zinc-900 font-semibold text-sm
               shadow-[0_1px_3px_rgba(0,0,0,0.3)]
-              hover:bg-white hover:shadow-[0_2px_12px_rgba(255,255,255,0.08)]
-              active:bg-stone-200
+              hover:bg-zinc-100 hover:shadow-[0_2px_12px_rgba(255,255,255,0.08)]
+              active:bg-zinc-200
               transition-all duration-150 ease-out"
           >
             {/* Google "G" logo */}
@@ -70,8 +70,8 @@ function LoginContent() {
 
           <p className="text-[12px] leading-relaxed text-[var(--text-faint)] text-center">
             Only accounts with{' '}
-            <span className="font-medium text-amber-400">@onesolve.io</span> or{' '}
-            <span className="font-medium text-amber-400">@onesolve.in</span> email addresses can
+            <span className="font-medium text-blue-400">@onesolve.io</span> or{' '}
+            <span className="font-medium text-blue-400">@onesolve.in</span> email addresses can
             sign in.
           </p>
         </div>

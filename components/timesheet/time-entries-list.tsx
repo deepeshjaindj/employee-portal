@@ -28,7 +28,7 @@ export function TimeEntriesList() {
   if (status === 'loading' || isLoading) {
     return (
       <div className="p-10 flex flex-col items-center justify-center gap-3">
-        <div className="h-5 w-5 rounded-full border-2 border-amber-500/30 border-t-amber-500 animate-spin" />
+        <div className="h-5 w-5 rounded-full border-2 border-blue-500/30 border-t-blue-500 animate-spin" />
         <p className="text-sm text-[var(--text-faint)]">Loading time entries...</p>
       </div>
     );
@@ -37,7 +37,7 @@ export function TimeEntriesList() {
   if (!entries || entries.length === 0) {
     return (
       <div className="p-12 flex flex-col items-center justify-center gap-3 text-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--bg-elevated)] border border-[var(--border-subtle)]">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-800 border border-[var(--border-subtle)]">
           <Inbox className="w-6 h-6 text-[var(--text-faint)]" />
         </div>
         <div className="space-y-1">
@@ -68,29 +68,29 @@ export function TimeEntriesList() {
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-[var(--border-subtle)]" style={{ background: 'var(--bg-elevated)' }}>
+            <tr className="border-b border-[var(--border-subtle)] bg-zinc-800/50">
               <th className="px-5 py-3 text-left">
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="w-3 h-3 text-[var(--text-faint)]" />
-                  <span className="text-[11px] font-semibold text-[var(--text-faint)] uppercase tracking-wider">Date</span>
+                  <Calendar className="w-3 h-3 text-zinc-500" />
+                  <span className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider">Date</span>
                 </div>
               </th>
               <th className="px-5 py-3 text-left">
                 <div className="flex items-center gap-1.5">
-                  <Briefcase className="w-3 h-3 text-[var(--text-faint)]" />
-                  <span className="text-[11px] font-semibold text-[var(--text-faint)] uppercase tracking-wider">Project</span>
+                  <Briefcase className="w-3 h-3 text-zinc-500" />
+                  <span className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider">Project</span>
                 </div>
               </th>
               <th className="px-5 py-3 text-left">
                 <div className="flex items-center gap-1.5">
-                  <FileText className="w-3 h-3 text-[var(--text-faint)]" />
-                  <span className="text-[11px] font-semibold text-[var(--text-faint)] uppercase tracking-wider">Description</span>
+                  <FileText className="w-3 h-3 text-zinc-500" />
+                  <span className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider">Description</span>
                 </div>
               </th>
               <th className="px-5 py-3 text-right">
                 <div className="flex items-center justify-end gap-1.5">
-                  <Clock className="w-3 h-3 text-[var(--text-faint)]" />
-                  <span className="text-[11px] font-semibold text-[var(--text-faint)] uppercase tracking-wider">Hours</span>
+                  <Clock className="w-3 h-3 text-zinc-500" />
+                  <span className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider">Hours</span>
                 </div>
               </th>
               <th className="px-5 py-3 w-14" />
@@ -100,8 +100,7 @@ export function TimeEntriesList() {
             {entries.map((entry, i) => (
               <tr
                 key={entry.id}
-                className="group border-b border-[var(--border-subtle)] last:border-b-0 transition-colors duration-100 hover:bg-amber-600/[0.03]"
-                style={i % 2 === 1 ? { background: 'var(--bg-row-alt)' } : undefined}
+                className="group border-b border-[var(--border-subtle)] last:border-b-0 transition-colors duration-100 hover:bg-blue-500/[0.03]"
               >
                 <td className="px-5 py-3.5 whitespace-nowrap">
                   <span className="text-xs font-medium text-[var(--text-secondary)] tabular-nums">
@@ -110,7 +109,7 @@ export function TimeEntriesList() {
                 </td>
                 <td className="px-5 py-3.5 whitespace-nowrap">
                   <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--text-primary)]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500/60" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500/60" />
                     {entry.projectName || entry.projectId}
                   </span>
                 </td>
@@ -120,7 +119,7 @@ export function TimeEntriesList() {
                   </span>
                 </td>
                 <td className="px-5 py-3.5 whitespace-nowrap text-right">
-                  <span className="inline-flex items-center justify-center min-w-[48px] px-2 py-0.5 rounded-md bg-amber-600/8 text-xs font-semibold text-amber-400 tabular-nums">
+                  <span className="inline-flex items-center justify-center min-w-[48px] px-2 py-0.5 rounded-md bg-blue-500/10 text-xs font-semibold text-blue-400 tabular-nums">
                     {(entry.hours / 3600).toFixed(2)}h
                   </span>
                 </td>

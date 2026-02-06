@@ -10,7 +10,7 @@ export default async function AuthErrorPage({
   const isAccessDenied = error === 'AccessDenied';
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--bg-root)' }}>
+    <main className="min-h-screen flex items-center justify-center px-4 bg-[#09090B]">
       <div className="w-full max-w-[420px] space-y-6 animate-slide-up">
         {/* Error icon */}
         <div className="flex justify-center">
@@ -48,7 +48,7 @@ export default async function AuthErrorPage({
         </div>
 
         {/* Help card */}
-        <div className="card-surface p-5 space-y-4 text-center">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-[var(--radius-lg)] shadow-[0_4px_32px_rgba(0,0,0,0.3)] p-5 space-y-4 text-center">
           <p className="text-[12px] text-[var(--text-faint)] leading-relaxed">
             {isAccessDenied ? (
               <>
@@ -66,8 +66,8 @@ export default async function AuthErrorPage({
           <Link
             href="/login"
             className="inline-flex w-full items-center justify-center gap-2 h-10 rounded-[var(--radius-sm)]
-              border border-[var(--border-strong)] text-[var(--text-secondary)] text-sm font-medium
-              hover:border-amber-600/40 hover:text-amber-400 hover:bg-amber-600/5
+              border border-zinc-700 text-[var(--text-secondary)] text-sm font-medium
+              hover:border-blue-500/50 hover:text-blue-400 hover:bg-blue-500/5
               transition-all duration-150"
           >
             <ArrowLeft className="w-3.5 h-3.5" />

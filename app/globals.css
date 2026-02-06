@@ -1,47 +1,32 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════
-   OBSIDIAN & AMBER — Design System
-   A volcanic dark surface with molten amber
-   light glowing through the seams.
+   MIDNIGHT SLATE — Design System
+   Cool zinc/slate dark UI with crisp blue accents.
+   Professional, polished, clean visual hierarchy.
    ═══════════════════════════════════════════ */
 
 @layer base {
   :root {
-    /* ── Surfaces ── */
-    --bg-root: #0A0908;
-    --bg-primary: #0F0D0B;
-    --bg-card: #151311;
-    --bg-elevated: #1C1917;
-    --bg-input: #0D0B09;
-    --bg-hover: rgba(255, 255, 255, 0.025);
-    --bg-row-alt: rgba(255, 255, 255, 0.012);
-
     /* ── Borders ── */
-    --border-subtle: rgba(255, 255, 255, 0.05);
-    --border-default: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.14);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-default: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.16);
 
     /* ── Text ── */
-    --text-primary: #F5F5F4;
-    --text-secondary: #D6D3D1;
-    --text-muted: #A8A29E;
-    --text-faint: #6B6560;
+    --text-primary: #FAFAFA;
+    --text-secondary: #D4D4D8;
+    --text-muted: #A1A1AA;
+    --text-faint: #63636E;
 
-    /* ── Accent (Amber / Copper) ── */
-    --accent: #D97706;
-    --accent-light: #FBBF24;
-    --accent-hover: #E8A317;
-    --accent-subtle: rgba(217, 119, 6, 0.06);
-    --accent-muted: rgba(217, 119, 6, 0.12);
-    --accent-ring: 0 0 0 2px rgba(217, 119, 6, 0.25);
-    --accent-glow: 0 0 20px rgba(217, 119, 6, 0.12), 0 0 60px rgba(217, 119, 6, 0.04);
+    /* ── Accent (Blue) ── */
+    --accent: #3B82F6;
+    --accent-light: #60A5FA;
+    --accent-hover: #2563EB;
 
     /* ── Danger ── */
     --danger: #F87171;
     --danger-dark: #DC2626;
-    --danger-subtle: rgba(248, 113, 113, 0.06);
-    --danger-muted: rgba(248, 113, 113, 0.12);
 
     /* ── Spacing / Radius ── */
     --radius-sm: 8px;
@@ -58,15 +43,15 @@
   }
 
   body {
-    background: var(--bg-root);
+    background: #09090B;
     color: var(--text-primary);
-    font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+    font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-outfit), "Outfit", system-ui, sans-serif;
+    font-family: var(--font-sora), "Sora", system-ui, sans-serif;
     letter-spacing: -0.03em;
     color: var(--text-primary);
   }
@@ -88,7 +73,7 @@
 
   /* ── Selection ── */
   ::selection {
-    background: var(--accent-muted);
+    background: rgba(59, 130, 246, 0.25);
     color: var(--text-primary);
   }
 }
@@ -171,39 +156,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Ambient amber glow for backgrounds */
-  .ambient-glow {
-    background-image:
-      radial-gradient(ellipse 800px 500px at 25% 15%, rgba(217, 119, 6, 0.035) 0%, transparent 100%),
-      radial-gradient(ellipse 600px 400px at 75% 85%, rgba(217, 119, 6, 0.02) 0%, transparent 100%);
-  }
-
-  /* Login-specific dramatic glow */
-  .ambient-glow-center {
-    background-image:
-      radial-gradient(ellipse 500px 400px at 50% 40%, rgba(217, 119, 6, 0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 800px 600px at 50% 50%, rgba(217, 119, 6, 0.025) 0%, transparent 100%);
-  }
-
-  /* Card glass surface */
-  .card-surface {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.04) inset;
-  }
-
-  /* Elevated card (dialogs, popovers) */
-  .card-elevated {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-xl);
-    box-shadow:
-      0 8px 48px rgba(0, 0, 0, 0.5),
-      0 0 1px rgba(255, 255, 255, 0.06) inset;
-  }
-
-  /* Amber accent bar (top of cards) */
+  /* Blue accent bar (top of cards/dialogs) */
   .accent-bar-top {
     position: relative;
     overflow: hidden;
@@ -215,14 +168,8 @@
     left: 24px;
     right: 24px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent-light) 50%, var(--accent) 70%, transparent);
+    background: linear-gradient(90deg, transparent, #3B82F6 30%, #60A5FA 50%, #3B82F6 70%, transparent);
     opacity: 0.6;
-  }
-
-  /* Subtle amber glow line for header */
-  .border-glow-bottom {
-    border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 1px 12px rgba(217, 119, 6, 0.04);
   }
 
   /* Animation helpers */

@@ -9,13 +9,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <textarea
         className={cn(
           'flex w-full rounded-[var(--radius-sm)] px-3.5 py-2.5 text-sm min-h-[100px]',
-          'bg-[var(--bg-input)] text-[var(--text-primary)]',
-          'border border-[var(--border-default)]',
-          'shadow-[inset_0_1px_3px_rgba(0,0,0,0.25)]',
+          'bg-[#111113] text-[var(--text-primary)]',
+          'border border-zinc-700/80',
           'placeholder:text-[var(--text-faint)]',
           'transition-all duration-[var(--duration-fast)] ease-out',
-          'hover:border-[var(--border-strong)]',
-          'focus:outline-none focus:border-amber-600/60 focus:shadow-[inset_0_1px_3px_rgba(0,0,0,0.25),var(--accent-ring)]',
+          'hover:border-zinc-600',
+          'focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20',
           'disabled:cursor-not-allowed disabled:opacity-40',
           'resize-y',
           className

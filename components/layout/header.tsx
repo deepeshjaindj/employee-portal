@@ -28,13 +28,13 @@ export function Header() {
     .slice(0, 2);
 
   return (
-    <header className="sticky top-0 z-30 border-glow-bottom" style={{ background: 'var(--bg-primary)' }}>
+    <header className="sticky top-0 z-30 bg-zinc-950/80 backdrop-blur-md border-b border-[var(--border-subtle)]">
       <div className="max-w-7xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <div className="relative flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-700" />
-            <span className="relative text-[11px] font-bold text-stone-950 tracking-wide">OS</span>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700" />
+            <span className="relative text-[11px] font-bold text-white tracking-wide">OS</span>
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-semibold text-[var(--text-primary)] tracking-tight">
@@ -51,8 +51,8 @@ export function Header() {
           {session?.user && (
             <>
               {/* User pill */}
-              <div className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[var(--bg-hover)] border border-[var(--border-subtle)]">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-600/20 text-amber-400">
+              <div className="hidden sm:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-zinc-800/60 border border-[var(--border-subtle)]">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
                   <span className="text-[9px] font-bold leading-none">{initials}</span>
                 </div>
                 <span className="text-xs font-medium text-[var(--text-secondary)] truncate max-w-[140px]">
