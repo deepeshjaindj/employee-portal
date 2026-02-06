@@ -45,8 +45,8 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
 
   if (status === 'loading' || projectsLoading) {
     return (
-      <div className="py-10 flex flex-col items-center justify-center gap-3">
-        <div className="h-5 w-5 rounded-full border-2 border-blue-500/30 border-t-blue-500 animate-spin" />
+      <div className="py-12 flex flex-col items-center justify-center gap-3">
+        <div className="h-5 w-5 rounded-full border-2 border-blue-500/25 border-t-blue-500 animate-spin" />
         <p className="text-sm text-[var(--text-faint)]">Loading form...</p>
       </div>
     );
@@ -56,7 +56,7 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       {/* Project */}
       <div className="space-y-2">
-        <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.06em]">
+        <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.08em]">
           Project
         </label>
         <Select {...register('projectId', { required: 'Project is required' })}>
@@ -68,8 +68,8 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
           ))}
         </Select>
         {errors.projectId && (
-          <p className="text-[12px] text-red-400 flex items-center gap-1">
-            <span className="h-1 w-1 rounded-full bg-red-400" />
+          <p className="text-[12px] text-rose-400 flex items-center gap-1.5">
+            <span className="h-1 w-1 rounded-full bg-rose-400" />
             {errors.projectId.message}
           </p>
         )}
@@ -78,7 +78,7 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
       {/* Date & Hours row */}
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.06em]">
+          <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.08em]">
             Date
           </label>
           <Input
@@ -87,15 +87,15 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
             defaultValue={formatDateForAirtable(new Date())}
           />
           {errors.date && (
-            <p className="text-[12px] text-red-400 flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-red-400" />
+            <p className="text-[12px] text-rose-400 flex items-center gap-1.5">
+              <span className="h-1 w-1 rounded-full bg-rose-400" />
               {errors.date.message}
             </p>
           )}
         </div>
 
         <div className="space-y-2">
-          <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.06em]">
+          <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.08em]">
             Hours
           </label>
           <Input
@@ -111,8 +111,8 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
             })}
           />
           {errors.hours && (
-            <p className="text-[12px] text-red-400 flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-red-400" />
+            <p className="text-[12px] text-rose-400 flex items-center gap-1.5">
+              <span className="h-1 w-1 rounded-full bg-rose-400" />
               {errors.hours.message}
             </p>
           )}
@@ -121,9 +121,9 @@ export function TimeEntryForm({ onSuccess }: TimeEntryFormProps) {
 
       {/* Description */}
       <div className="space-y-2">
-        <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.06em]">
+        <label className="block text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.08em]">
           Task Description
-          <span className="ml-1.5 font-normal text-[var(--text-faint)] normal-case tracking-normal">optional</span>
+          <span className="ml-1.5 font-normal text-[var(--text-faint)] normal-case tracking-normal text-[11px]">optional</span>
         </label>
         <Textarea
           {...register('description')}

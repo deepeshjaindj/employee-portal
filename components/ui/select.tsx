@@ -10,12 +10,13 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         <select
           className={cn(
             'flex h-10 w-full appearance-none rounded-[var(--radius-sm)] pl-3.5 pr-10 py-2 text-sm',
-            'bg-[#111113] text-[var(--text-primary)]',
-            'border border-zinc-700/80',
+            'bg-[#0C0C10] text-[var(--text-primary)]',
+            'border border-slate-700/50',
+            'shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]',
             'transition-all duration-[var(--duration-fast)] ease-out',
-            'hover:border-zinc-600',
-            'focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20',
-            'disabled:cursor-not-allowed disabled:opacity-40',
+            'hover:border-slate-600/60',
+            'focus:outline-none focus:border-blue-500/70 focus:ring-2 focus:ring-blue-500/15 focus:shadow-[inset_0_2px_4px_rgba(0,0,0,0.3),0_0_0_1px_rgba(59,130,246,0.1)]',
+            'disabled:cursor-not-allowed disabled:opacity-35',
             '[color-scheme:dark]',
             className
           )}
@@ -30,7 +31,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             height="14"
             viewBox="0 0 16 16"
             fill="none"
-            className="text-[var(--text-faint)]"
+            className="text-slate-500"
           >
             <path
               d="M4 6L8 10L12 6"

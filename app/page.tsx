@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <main className="min-h-[calc(100vh-56px)]">
-      <div className="max-w-7xl mx-auto px-5 py-8 space-y-6">
+      <div className="max-w-7xl mx-auto px-6 py-8 space-y-6">
         {/* Page header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between animate-fade-in">
           <div className="flex items-start gap-3.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20 mt-0.5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/8 border border-blue-500/15 shadow-[0_0_16px_rgba(59,130,246,0.06)] mt-0.5">
               <Clock className="w-5 h-5 text-blue-400" />
             </div>
             <div>
@@ -36,7 +36,10 @@ export default function Home() {
         </div>
 
         {/* Time entries table */}
-        <section className="bg-zinc-900 border border-zinc-800 rounded-[var(--radius-lg)] shadow-[0_4px_32px_rgba(0,0,0,0.3)] overflow-hidden animate-slide-up" style={{ animationDelay: '100ms' }}>
+        <section
+          className="bg-[#111116] border border-slate-700/30 rounded-[var(--radius-lg)] shadow-[0_4px_32px_rgba(0,0,0,0.35),0_0_0_1px_rgba(148,163,184,0.03)_inset] overflow-hidden animate-slide-up"
+          style={{ animationDelay: '80ms' }}
+        >
           <TimeEntriesList />
         </section>
       </div>

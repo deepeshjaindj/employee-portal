@@ -1,49 +1,57 @@
 @import "tailwindcss";
 
-/* ═══════════════════════════════════════════
-   MIDNIGHT SLATE — Design System
-   Cool zinc/slate dark UI with crisp blue accents.
-   Professional, polished, clean visual hierarchy.
-   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   MIDNIGHT SLATE — Design System v2
+   Deep-space precision. Cool zinc architecture
+   with electric blue signal lines. Every surface
+   has weight; every interaction has intent.
+   ═══════════════════════════════════════════════════ */
 
 @layer base {
   :root {
+    /* ── Surfaces (referenced for documentation only — use direct Tailwind classes) ── */
+    /* Page:     #06060A  (near-black with blue undertone)  */
+    /* Card:     #111116  (clearly lifted from page)        */
+    /* Elevated: #1A1A21  (dialog / popover)                */
+    /* Input:    #0C0C10  (recessed into card)              */
+
     /* ── Borders ── */
-    --border-subtle: rgba(255, 255, 255, 0.06);
-    --border-default: rgba(255, 255, 255, 0.10);
-    --border-strong: rgba(255, 255, 255, 0.16);
+    --border-subtle: rgba(148, 163, 184, 0.06);
+    --border-default: rgba(148, 163, 184, 0.10);
+    --border-strong: rgba(148, 163, 184, 0.18);
 
     /* ── Text ── */
-    --text-primary: #FAFAFA;
-    --text-secondary: #D4D4D8;
-    --text-muted: #A1A1AA;
-    --text-faint: #63636E;
+    --text-primary: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --text-faint: #475569;
 
-    /* ── Accent (Blue) ── */
+    /* ── Accent (Electric Blue) ── */
     --accent: #3B82F6;
     --accent-light: #60A5FA;
-    --accent-hover: #2563EB;
+    --accent-dim: #1D4ED8;
+    --accent-glow: rgba(59, 130, 246, 0.15);
 
     /* ── Danger ── */
-    --danger: #F87171;
-    --danger-dark: #DC2626;
+    --danger: #FB7185;
+    --danger-bg: rgba(251, 113, 133, 0.08);
 
-    /* ── Spacing / Radius ── */
+    /* ── Radius ── */
     --radius-sm: 8px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
-    --radius-xl: 20px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 22px;
 
     /* ── Motion ── */
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --duration-fast: 150ms;
+    --duration-fast: 120ms;
     --duration-normal: 200ms;
-    --duration-slow: 350ms;
+    --duration-slow: 380ms;
   }
 
   body {
-    background: #09090B;
+    background: #06060A;
     color: var(--text-primary);
     font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -52,35 +60,35 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sora), "Sora", system-ui, sans-serif;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     color: var(--text-primary);
   }
 
-  /* ── Custom Scrollbar ── */
+  /* ── Scrollbar: barely visible until hovered ── */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+    scrollbar-color: rgba(148, 163, 184, 0.06) transparent;
   }
   ::-webkit-scrollbar { width: 5px; height: 5px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(148, 163, 184, 0.08);
     border-radius: 99px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(148, 163, 184, 0.18);
   }
 
-  /* ── Selection ── */
+  /* ── Selection: electric blue ── */
   ::selection {
-    background: rgba(59, 130, 246, 0.25);
-    color: var(--text-primary);
+    background: rgba(59, 130, 246, 0.30);
+    color: #F1F5F9;
   }
 }
 
-/* ═══════════════════════════════════════════
+/* ═══════════════════════════════════════════════════
    Keyframes
-   ═══════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════ */
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -90,7 +98,7 @@
 @keyframes slide-up-fade {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.97);
+    transform: translateY(24px) scale(0.96);
   }
   to {
     opacity: 1;
@@ -101,7 +109,7 @@
 @keyframes slide-down-fade {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -127,7 +135,7 @@
 @keyframes stagger-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -135,12 +143,27 @@
   }
 }
 
-/* ═══════════════════════════════════════════
+/* Subtle pulsing scan-line for accent bars */
+@keyframes scan-line {
+  0% { left: -30%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 130%; opacity: 0; }
+}
+
+/* Slow aurora drift for login background */
+@keyframes aurora-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ═══════════════════════════════════════════════════
    Utility Classes
-   ═══════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════ */
 
 @layer utilities {
-  /* Grain texture overlay for premium feel */
+  /* ── Grain texture: adds analog depth ── */
   .grain-overlay {
     position: relative;
     isolation: isolate;
@@ -151,12 +174,12 @@
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.018;
+    opacity: 0.022;
     mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Blue accent bar (top of cards/dialogs) */
+  /* ── Blue accent bar with animated scan-line ── */
   .accent-bar-top {
     position: relative;
     overflow: hidden;
@@ -165,14 +188,41 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 24px;
-    right: 24px;
+    left: 20px;
+    right: 20px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #3B82F6 30%, #60A5FA 50%, #3B82F6 70%, transparent);
-    opacity: 0.6;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(59, 130, 246, 0.3) 20%,
+      rgba(96, 165, 250, 0.6) 50%,
+      rgba(59, 130, 246, 0.3) 80%,
+      transparent
+    );
+  }
+  .accent-bar-top::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    width: 60px;
+    height: 3px;
+    background: radial-gradient(ellipse, rgba(96, 165, 250, 0.9), transparent);
+    filter: blur(1px);
+    animation: scan-line 4s var(--ease-out) infinite;
+    animation-delay: 1s;
   }
 
-  /* Animation helpers */
+  /* ── Aurora background for login ── */
+  .aurora-bg {
+    background:
+      radial-gradient(ellipse 600px 400px at 30% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 100%),
+      radial-gradient(ellipse 500px 350px at 70% 80%, rgba(99, 102, 241, 0.04) 0%, transparent 100%),
+      radial-gradient(ellipse 800px 500px at 50% 50%, rgba(30, 58, 138, 0.03) 0%, transparent 100%),
+      #06060A;
+    background-size: 200% 200%, 200% 200%, 100% 100%, 100% 100%;
+    animation: aurora-drift 25s ease-in-out infinite;
+  }
+
+  /* ── Animation helpers ── */
   .animate-fade-in {
     animation: fade-in var(--duration-normal) var(--ease-out) both;
   }
@@ -186,16 +236,16 @@
     animation: overlay-show var(--duration-normal) var(--ease-out) both;
   }
 
-  /* Stagger children animations */
+  /* ── Stagger children ── */
   .stagger-children > * {
-    animation: stagger-in 0.4s var(--ease-out) both;
+    animation: stagger-in 0.45s var(--ease-out) both;
   }
   .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-  .stagger-children > *:nth-child(2) { animation-delay: 60ms; }
-  .stagger-children > *:nth-child(3) { animation-delay: 120ms; }
-  .stagger-children > *:nth-child(4) { animation-delay: 180ms; }
-  .stagger-children > *:nth-child(5) { animation-delay: 240ms; }
-  .stagger-children > *:nth-child(6) { animation-delay: 300ms; }
-  .stagger-children > *:nth-child(7) { animation-delay: 360ms; }
-  .stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 50ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 150ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 250ms; }
+  .stagger-children > *:nth-child(7) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(8) { animation-delay: 350ms; }
 }

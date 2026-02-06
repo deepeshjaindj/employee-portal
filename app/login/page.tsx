@@ -9,32 +9,32 @@ function LoginContent() {
   const from = searchParams.get('from') || '/';
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4 bg-[#09090B]">
+    <main className="min-h-screen flex items-center justify-center px-4 aurora-bg">
       <div className="w-full max-w-[400px] space-y-8 animate-slide-up">
         {/* Branding */}
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-5">
           {/* Logo */}
           <div className="flex justify-center">
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(59,130,246,0.15)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700" />
-              <span className="relative text-base font-bold text-white tracking-wide">OS</span>
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl overflow-hidden shadow-[0_4px_32px_rgba(59,130,246,0.2),0_0_0_1px_rgba(59,130,246,0.1)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-700" />
+              <span className="relative text-lg font-bold text-white tracking-wider">OS</span>
             </div>
           </div>
 
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-[var(--text-primary)] tracking-tight">
+          <div className="space-y-2.5">
+            <h1 className="text-[26px] font-semibold text-[var(--text-primary)] tracking-tight leading-tight">
               Sign in to your workspace
             </h1>
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-[320px] mx-auto">
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-[300px] mx-auto">
               Use your OneSolve Google account to access timesheets and internal resources.
             </p>
           </div>
         </div>
 
         {/* Login Card */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-[var(--radius-lg)] shadow-[0_4px_32px_rgba(0,0,0,0.3)] accent-bar-top p-6 space-y-5">
-          <div className="space-y-1">
-            <p className="text-[11px] font-semibold text-[var(--text-muted)] tracking-[0.08em] uppercase">
+        <div className="bg-[#111116] border border-slate-700/30 rounded-[var(--radius-lg)] shadow-[0_8px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(148,163,184,0.03)_inset,0_1px_0_rgba(148,163,184,0.04)_inset] accent-bar-top p-7 space-y-5">
+          <div className="space-y-1.5">
+            <p className="text-[11px] font-semibold text-[var(--text-muted)] tracking-[0.1em] uppercase">
               Continue with
             </p>
             <p className="text-[13px] text-[var(--text-faint)] leading-relaxed">
@@ -45,11 +45,12 @@ function LoginContent() {
           <button
             type="button"
             onClick={() => signIn('google', { callbackUrl: from })}
-            className="w-full flex items-center justify-center gap-3 h-11 px-4 rounded-[var(--radius-sm)] cursor-pointer
-              bg-white text-zinc-900 font-semibold text-sm
-              shadow-[0_1px_3px_rgba(0,0,0,0.3)]
-              hover:bg-zinc-100 hover:shadow-[0_2px_12px_rgba(255,255,255,0.08)]
-              active:bg-zinc-200
+            className="w-full flex items-center justify-center gap-3 h-12 px-4 rounded-[var(--radius-sm)] cursor-pointer
+              bg-white text-slate-900 font-semibold text-sm
+              shadow-[0_1px_3px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]
+              hover:bg-slate-50 hover:shadow-[0_2px_20px_rgba(255,255,255,0.06),0_4px_16px_rgba(0,0,0,0.2)]
+              hover:-translate-y-px
+              active:bg-slate-100 active:translate-y-0 active:shadow-[0_1px_3px_rgba(0,0,0,0.2)]
               transition-all duration-150 ease-out"
           >
             {/* Google "G" logo */}
@@ -63,21 +64,21 @@ function LoginContent() {
           </button>
 
           <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-[var(--border-subtle)]" />
-            <span className="text-[10px] text-[var(--text-faint)] uppercase tracking-widest">Restricted</span>
-            <div className="flex-1 h-px bg-[var(--border-subtle)]" />
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-700/40 to-transparent" />
+            <span className="text-[10px] text-[var(--text-faint)] uppercase tracking-[0.15em]">Restricted</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-700/40 to-transparent" />
           </div>
 
           <p className="text-[12px] leading-relaxed text-[var(--text-faint)] text-center">
             Only accounts with{' '}
-            <span className="font-medium text-blue-400">@onesolve.io</span> or{' '}
-            <span className="font-medium text-blue-400">@onesolve.in</span> email addresses can
+            <span className="font-semibold text-blue-400/90">@onesolve.io</span> or{' '}
+            <span className="font-semibold text-blue-400/90">@onesolve.in</span> email addresses can
             sign in.
           </p>
         </div>
 
         {/* Footer */}
-        <p className="text-[11px] text-[var(--text-faint)] text-center leading-relaxed">
+        <p className="text-[11px] text-[var(--text-faint)] text-center leading-relaxed opacity-70">
           By signing in, you agree to OneSolve&apos;s internal usage and data access policies.
         </p>
       </div>
